@@ -73,14 +73,19 @@ nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.94); ba
 hr.divider { border:none; border-top:1px solid var(--border); }
 
 /* PRESS STRIP */
-.press-strip { background:var(--bg2); padding:16px 40px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.press-inner { max-width:1000px; margin:0 auto; display:flex; align-items:center; gap:28px; }
-.press-label { font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); white-space:nowrap; flex-shrink:0; }
-.press-divider { width:1px; height:16px; background:var(--border); flex-shrink:0; }
-.press-logos { display:flex; align-items:center; gap:24px; flex:1; flex-wrap:nowrap; overflow:hidden; }
-.press-logo { display:flex; align-items:center; text-decoration:none; opacity:0.3; transition:opacity 0.2s; filter:grayscale(100%); flex-shrink:0; }
-.press-logo:hover { opacity:0.6; }
-.press-logo img { height:14px; width:auto; display:block; }
+.press-strip { background:var(--bg2); padding:18px 40px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.press-inner { max-width:1000px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:nowrap; }
+.press-logo { text-decoration:none; opacity:0.32; transition:opacity 0.2s; white-space:nowrap; color:var(--ink); display:inline-flex; align-items:center; }
+.press-logo:hover { opacity:0.75; }
+.press-logo::after { content:'·'; font-size:14px; color:var(--faint); opacity:0.5; padding:0 16px; font-weight:300; }
+.press-logo:last-child::after { display:none; }
+.pl-forbes { font-family:'Fraunces',serif; font-size:17px; font-weight:700; font-style:italic; letter-spacing:-0.02em; }
+.pl-fastco { font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+.pl-vice { font-family:'Plus Jakarta Sans',sans-serif; font-size:16px; font-weight:900; letter-spacing:-0.01em; }
+.pl-shonda { font-family:'Fraunces',serif; font-size:13px; font-weight:400; font-style:italic; }
+.pl-cosmo { font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; }
+.pl-newsweek { font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; }
+.pl-bustle { font-family:'Fraunces',serif; font-size:15px; font-weight:700; letter-spacing:-0.01em; }
 
 /* PRODUCTS */
 .products { max-width:1000px; margin:0 auto; padding:52px 40px 64px; position:relative; z-index:1; }
@@ -254,10 +259,10 @@ footer { background:#2c2535; padding:32px 40px; position:relative; z-index:1; }
   .hero{grid-template-columns:1fr;gap:28px;padding:40px 20px;}
   .hero-right{display:none;}
   .products{padding:40px 20px 52px;}
-  .press-strip{padding:16px 20px;}
-  .press-inner{flex-direction:column;align-items:flex-start;gap:14px;}
-  .press-logos{gap:20px;}
-  .press-logo img{height:14px;}
+  .press-strip{padding:14px 0;}
+  .press-inner{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 20px;scrollbar-width:none;}
+  .press-inner::-webkit-scrollbar{display:none;}
+  .press-logo{flex-shrink:0;}
   .pgrid{grid-template-columns:1fr;}
   .about{padding:48px 20px 0;}
   .about-inner{grid-template-columns:1fr;gap:28px;}
@@ -339,17 +344,13 @@ footer { background:#2c2535; padding:32px 40px; position:relative; z-index:1; }
 <!-- PRESS STRIP -->
 <div class="press-strip">
   <div class="press-inner">
-    <span class="press-label">As seen in</span>
-    <div class="press-divider"></div>
-    <div class="press-logos">
-      <a href="https://www.forbes.com/sites/marijabutkovic/2021/04/01/meet-the-female-founder-who-just-raised-23-million-for-her-safe-after-sex-cleanup-product-aiming-to-destigmatize-conversations-surrounding-womens-sexual-health/" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/forbes.com" alt="Forbes"></a>
-      <a href="https://www.fastcompany.com/90624520/world-changing-ideas-awards-2021-wellness-finalists-and-honorable-mentions" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/fastcompany.com" alt="Fast Company"></a>
-      <a href="https://www.vice.com/en/article/z3xmej/what-is-dripstick-sponge-tiktok" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/vice.com" alt="VICE"></a>
-      <a href="https://www.shondaland.com/live/family/a36675977/frances-tang-is-on-a-mission-to-make-sex-less-awkward/" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/shondaland.com" alt="Shondaland"></a>
-      <a href="https://www.cosmopolitan.com/career/a37387973/the-new-c-suite/" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/cosmopolitan.com" alt="Cosmopolitan"></a>
-      <a href="https://www.newsweek.com/why-sex-tech-overlooked-giant-wellness-industry-1700747" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/newsweek.com" alt="Newsweek"></a>
-      <a href="https://www.bustle.com/wellness/dripstick-sex-sponge-awkward-essentials-review" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/bustle.com" alt="Bustle"></a>
-    </div>
+    <a href="https://www.forbes.com/sites/marijabutkovic/2021/04/01/meet-the-female-founder-who-just-raised-23-million-for-her-safe-after-sex-cleanup-product-aiming-to-destigmatize-conversations-surrounding-womens-sexual-health/" target="_blank" class="press-logo"><span class="pl-forbes">Forbes</span></a>
+    <a href="https://www.fastcompany.com/90624520/world-changing-ideas-awards-2021-wellness-finalists-and-honorable-mentions" target="_blank" class="press-logo"><span class="pl-fastco">Fast Company</span></a>
+    <a href="https://www.vice.com/en/article/z3xmej/what-is-dripstick-sponge-tiktok" target="_blank" class="press-logo"><span class="pl-vice">VICE</span></a>
+    <a href="https://www.shondaland.com/live/family/a36675977/frances-tang-is-on-a-mission-to-make-sex-less-awkward/" target="_blank" class="press-logo"><span class="pl-shonda">Shondaland</span></a>
+    <a href="https://www.cosmopolitan.com/career/a37387973/the-new-c-suite/" target="_blank" class="press-logo"><span class="pl-cosmo">Cosmopolitan</span></a>
+    <a href="https://www.newsweek.com/why-sex-tech-overlooked-giant-wellness-industry-1700747" target="_blank" class="press-logo"><span class="pl-newsweek">Newsweek</span></a>
+    <a href="https://www.bustle.com/wellness/dripstick-sex-sponge-awkward-essentials-review" target="_blank" class="press-logo"><span class="pl-bustle">Bustle</span></a>
   </div>
 </div>
 
