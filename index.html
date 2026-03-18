@@ -72,6 +72,16 @@ nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.94); ba
 
 hr.divider { border:none; border-top:1px solid var(--border); }
 
+/* PRESS STRIP */
+.press-strip { background:var(--bg2); padding:16px 40px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.press-inner { max-width:1000px; margin:0 auto; display:flex; align-items:center; gap:28px; }
+.press-label { font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); white-space:nowrap; flex-shrink:0; }
+.press-divider { width:1px; height:16px; background:var(--border); flex-shrink:0; }
+.press-logos { display:flex; align-items:center; gap:24px; flex:1; flex-wrap:nowrap; overflow:hidden; }
+.press-logo { display:flex; align-items:center; text-decoration:none; opacity:0.3; transition:opacity 0.2s; filter:grayscale(100%); flex-shrink:0; }
+.press-logo:hover { opacity:0.6; }
+.press-logo img { height:14px; width:auto; display:block; }
+
 /* PRODUCTS */
 .products { max-width:1000px; margin:0 auto; padding:52px 40px 64px; position:relative; z-index:1; }
 .sect-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
@@ -223,13 +233,19 @@ hr.divider { border:none; border-top:1px solid var(--border); }
 .flink-arrow { font-size:14px; opacity:0.6; }
 
 /* FOOTER */
-footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
-.footer-inner { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-.footer-logo { font-family:'Fraunces',serif; font-size:15px; font-style:italic; color:#c8a840; }
-.footer-sub { font-size:10px; color:rgba(200,168,64,0.35); margin-top:3px; font-weight:300; }
-.footer-links { display:flex; gap:20px; }
-.footer-links a { font-size:10px; color:rgba(200,168,64,0.35); text-decoration:none; transition:color 0.2s; }
-.footer-links a:hover { color:rgba(200,168,64,0.7); }
+footer { background:#2c2535; padding:32px 40px; position:relative; z-index:1; }
+.footer-inner { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px; }
+.footer-logo { font-family:'Fraunces',serif; font-size:15px; font-style:italic; color:rgba(255,255,255,0.75); }
+.footer-sub { font-size:10px; color:rgba(255,255,255,0.3); margin-top:3px; font-weight:300; }
+.footer-legal { display:flex; gap:32px; flex-wrap:wrap; }
+.footer-legal-group { display:flex; flex-direction:column; gap:5px; }
+.footer-legal-label { font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:3px; }
+.footer-legal-group a { font-size:10px; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; white-space:nowrap; }
+.footer-legal-group a:hover { color:rgba(255,255,255,0.8); }
+.footer-contact { display:flex; flex-direction:column; gap:5px; }
+.footer-contact-label { font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:3px; }
+.footer-contact a { font-size:10px; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; }
+.footer-contact a:hover { color:rgba(255,255,255,0.8); }
 
 /* RESPONSIVE */
 @media(max-width:700px){
@@ -238,6 +254,10 @@ footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
   .hero{grid-template-columns:1fr;gap:28px;padding:40px 20px;}
   .hero-right{display:none;}
   .products{padding:40px 20px 52px;}
+  .press-strip{padding:16px 20px;}
+  .press-inner{flex-direction:column;align-items:flex-start;gap:14px;}
+  .press-logos{gap:20px;}
+  .press-logo img{height:14px;}
   .pgrid{grid-template-columns:1fr;}
   .about{padding:48px 20px 0;}
   .about-inner{grid-template-columns:1fr;gap:28px;}
@@ -247,8 +267,9 @@ footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
   .stat-item:nth-child(2){border-right:none;}
   .founder-inner{grid-template-columns:1fr;gap:28px;padding:40px 20px;}
   .founder-right{padding-top:0;}
-  footer{padding:24px 20px;}
-  .footer-inner{flex-direction:column;align-items:flex-start;}
+  footer{padding:28px 20px;}
+  .footer-inner{flex-direction:column;gap:20px;}
+  .footer-legal{gap:20px;}
 }
 </style>
 </head>
@@ -282,7 +303,7 @@ footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-eyebrow"><span class="pulse-dot"></span><span class="eyebrow-text">Orange County, CA · Est. 2024</span></div>
+    <div class="hero-eyebrow"><span class="pulse-dot"></span><span class="eyebrow-text">Orange County, CA</span></div>
     <h1 class="hero-title">Frances<br>builds things.</h1>
     <p class="hero-sub">Apps. Newsletters. AI workflows.<br>For people she actually knows.</p>
     <p class="hero-body">Launched a forever google-able product, built and sold a venture-backed company. Now building small, specific things for OC parents, pole dancers, and founders who want to move faster. <strong>Half marketing, half AI brained, forever a founder.</strong></p>
@@ -315,12 +336,26 @@ footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
   </div>
 </section>
 
-<hr class="divider">
+<!-- PRESS STRIP -->
+<div class="press-strip">
+  <div class="press-inner">
+    <span class="press-label">As seen in</span>
+    <div class="press-divider"></div>
+    <div class="press-logos">
+      <a href="https://www.forbes.com/sites/marijabutkovic/2021/04/01/meet-the-female-founder-who-just-raised-23-million-for-her-safe-after-sex-cleanup-product-aiming-to-destigmatize-conversations-surrounding-womens-sexual-health/" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/forbes.com" alt="Forbes"></a>
+      <a href="https://www.fastcompany.com/90624520/world-changing-ideas-awards-2021-wellness-finalists-and-honorable-mentions" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/fastcompany.com" alt="Fast Company"></a>
+      <a href="https://www.vice.com/en/article/z3xmej/what-is-dripstick-sponge-tiktok" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/vice.com" alt="VICE"></a>
+      <a href="https://www.shondaland.com/live/family/a36675977/frances-tang-is-on-a-mission-to-make-sex-less-awkward/" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/shondaland.com" alt="Shondaland"></a>
+      <a href="https://www.cosmopolitan.com/career/a37387973/the-new-c-suite/" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/cosmopolitan.com" alt="Cosmopolitan"></a>
+      <a href="https://www.newsweek.com/why-sex-tech-overlooked-giant-wellness-industry-1700747" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/newsweek.com" alt="Newsweek"></a>
+      <a href="https://www.bustle.com/wellness/dripstick-sex-sponge-awkward-essentials-review" target="_blank" class="press-logo"><img src="https://logo.clearbit.com/bustle.com" alt="Bustle"></a>
+    </div>
+  </div>
+</div>
 
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="sect-row">
-    <span class="sect-label">Today's batch</span>
     <h2 class="sect-title">What's <em>baking.</em></h2>
   </div>
   <div class="pgrid">
@@ -332,7 +367,6 @@ footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
           <div class="phone-screen">
             <div class="ls">
               <div class="ls-pill"></div>
-              <div class="ls-child">Kiana 🇪🇸 <span style="font-size:5px;color:#a8987a;font-weight:400;">▾</span></div>
               <div class="ls-photo">🚰</div>
               <div class="ls-obj">water bottle</div>
               <div class="ls-word">botella<br>de agua</div>
@@ -574,10 +608,21 @@ footer { background:#2c2535; padding:24px 40px; position:relative; z-index:1; }
       <div class="footer-logo">Small Batch Ventures</div>
       <div class="footer-sub">© 2026 Small Batch Ventures LLC · Orange County, CA</div>
     </div>
-    <div class="footer-links">
-      <a href="/lingo-snap/privacy.html">Privacy</a>
-      <a href="/lingo-snap/terms.html">Terms</a>
-      <a href="mailto:frantang3@gmail.com">say hello</a>
+    <div class="footer-legal">
+      <div class="footer-legal-group">
+        <span class="footer-legal-label">Lingo Snap</span>
+        <a href="/lingo-snap/privacy.html">Privacy Policy</a>
+        <a href="/lingo-snap/terms.html">Terms of Service</a>
+      </div>
+      <div class="footer-legal-group">
+        <span class="footer-legal-label">FlowVault</span>
+        <a href="/flowvault/privacy.html">Privacy Policy</a>
+        <a href="/flowvault/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-contact-label">Contact</span>
+      <a href="mailto:frantang3@gmail.com">say hello ↗</a>
     </div>
   </div>
 </footer>
